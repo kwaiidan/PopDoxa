@@ -9,9 +9,15 @@ def get_raw_data():
 
 		cursor.execute(query)
 
-		return list(cursor)
+		state_list = list(cursor)
 
+		#cursor.close()
+		#cnx.close()
+
+		return state_list
+		
 	except mysql.connector.Error as err:
+		print("Here")
 		print(err)
 
 def get_states(raw_state_list):
@@ -40,9 +46,6 @@ def something():
 
 	for city_id in city_list:
 		print(city_dict[city_id])
-
-#cursor.close()
-#cnx.close()
 
 def main():
 	raw_state_list = get_raw_data()
